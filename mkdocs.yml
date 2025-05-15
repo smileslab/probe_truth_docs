@@ -1,0 +1,37 @@
+site_name: ProbeTruth Documentation
+site_url: https://probetruth.ai
+repo_url: https://github.com/smileslab  # Optional: replace with your actual repo URL
+theme:
+  name: material
+
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - API:
+      - Full API Reference: api/api_reference.md
+      - Authentication: api/authentication.md
+      - Upload Media: api/upload.md
+      - Inspect Media: api/analysis.md
+      - Generate Report: api/generate_report.md
+      - Detection Models: api/models.md
+  - Security: security.md
+  - FAQ: faq.md
+  - Contact: contact.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - tables
+
+extra:
+  favicon: favicon.ico
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-repo-link
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/company/probetruth
