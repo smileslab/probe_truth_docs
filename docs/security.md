@@ -25,19 +25,22 @@ At ProbeTruth, safeguarding your data and privacy is at the core of our platform
 - We adhere to data protection standards aligned with GDPR and CCPA requirements.
 
 ---
-
 ## API Security
 
-- **API Keys**: All endpoints require authentication via secure API keys.
-- **Rate Limiting**: To prevent abuse, API usage is rate-limited and monitored.
-- **Token Expiry**: Temporary access tokens (when used) expire automatically to reduce risk.
+| Security Feature   | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| **API Keys**        | All endpoints require secure API key authentication.                       |
+| **Rate Limiting**   | API usage is throttled to prevent abuse and ensure fair usage.             |
+| **Token Expiry**    | Temporary tokens (when issued) have automatic expiration for extra safety. |
 
 ---
 
 ## Integrity Protection
 
-- **Hash Verification**: Media file integrity is checked using SHA-256 hash comparison during upload.
-- **Tamper Detection**: We monitor anomalies in model execution that may indicate malicious inputs.
+| Mechanism           | Description                                                                 |
+|---------------------|-----------------------------------------------------------------------------|
+| **Hash Verification** | SHA-256 hash checks are performed on uploaded files to ensure data integrity. |
+| **Tamper Detection**  | Internal monitors watch for unusual model behavior or attack patterns.      |
 
 ---
 
