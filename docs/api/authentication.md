@@ -1,38 +1,100 @@
-# API Authentication
+## API Authentication
 
-To use the ProbeTruth API, you must authenticate each request using a valid API key. This ensures secure access to our deepfake detection services and protects your data.
+All requests to the ProbeTruth API must be authenticated using **secure, token-based authentication** provided by **Amazon Cognito**. This ensures robust, scalable access control to our deepfake detection services.
 
----
-
-## Obtaining an API Key
-
-ProbeTruth provides API keys on request. Please contact us at [demo@probetruth.ai](mailto:demo@probetruth.ai) to request access.
-
-Once approved, you'll receive your API key via email. This key will allow you to authenticate and use all supported API endpoints.
+We no longer support static API keys for production access due to security and scalability limitations.
 
 ---
 
-## How to Authenticate
+##  Overview of Authentication Flow
 
-Include your API key in the `Authorization` header of each HTTP request, using the **Bearer token** format:
+1. Clients **authenticate** using Amazon Cognito and obtain a **JWT access token**.
+2. Clients include this token in the `Authorization` header when calling any protected API endpoint.
+3. **API Gateway** validates the token before forwarding the request to the backend (e.g., Lambda, ECS, or SageMaker model).
 
 ---
 
-## Example Request (Python)
+## Getting Access
 
-Here’s a sample using `requests` in Python to authenticate and call an endpoint:
+To gain access to the ProbeTruth API:
 
-```python
+1. Contact us at [demo@probetruth.ai](mailto:demo@probetruth.ai) to request API access.
+2. We’ll provision access to a **Cognito User Pool** and send you the necessary credentials (Client ID, Pool ID, Region).
+3. You can authenticate via:
+    - Hosted UI (Login page hosted by Cognito)
+    - Directly using SDKs like AWS Amplify or Amazon Cognito Identity SDK.
+
+---
+
+## Token-Based Authentication
+
+Once authenticated, your client will receive a **JWT access token** from Cognito.
+
+Include this token in the `Authorization` header of all API requests:
+
+Authorization: Bearer `<your_jwt_token_here>`
+
+The token is automatically validated by our **API Gateway Authorizer** before any request is forwarded to the inference engine.
+
+---
+
+## Example (Python + JWT)
+```
 import requests
 
-API_KEY = 'your_api_key_here'
+JWT_TOKEN = 'your_jwt_access_token_here'
+API_URL = 'https://api.probetruth.ai/v1/report-status'
+
 headers = {
-    'Authorization': f'Bearer {API_KEY}'
+'Authorization': f'Bearer {JWT_TOKEN}'
 }
 
-response = requests.get('https://api.probetruth.ai/v1/report-status', headers=headers)
+response = requests.get(API_URL, headers=headers)
 
-if response.status_code == 200:
-    print("Response:", response.json())
+if response.ok:
+print("Success:", response.json())
 else:
-    print("Error:", response.status_code, response.text)
+print("Error:", response.status_code, response.text)
+```
+---
+## Authenticating with Cognito
+
+To get a token, you can authenticate with Cognito using:
+
+### Option A: Hosted UI (OAuth2 Login)
+
+You’ll be redirected to a Cognito-hosted login page. Upon login, Cognito redirects you back to your app with a token.
+
+### Option B: Programmatic Login (for CLI or backend clients)
+
+You can use the AWS Cognito Identity SDK:
+```
+import boto3
+
+client = boto3.client('cognito-idp', region_name='your-region')
+
+response = client.initiate_auth(
+ClientId='your_cognito_client_id',
+AuthFlow='USER_PASSWORD_AUTH',
+AuthParameters={
+'USERNAME': 'your_username',
+'PASSWORD': 'your_password'
+}
+)
+
+jwt_token = response['AuthenticationResult']['AccessToken']
+```
+---
+
+## Security Best Practices
+
+- **Never expose your token** in frontend JavaScript or public repositories.
+- **Rotate credentials** periodically.
+
+---
+
+## 📌 Coming Soon
+
+- OAuth2 scope-based permission control (e.g., `read:reports`, `submit:job`)
+- Multi-tenant access via Cognito User Groups and Roles
+- Temporary session tokens via AWS STS for advanced clients

@@ -9,6 +9,7 @@ This guide walks you through the basic steps to start using the ProbeTruth platf
 ## Who Can Use ProbeTruth?
 
 ProbeTruth is designed for:
+
 - General users needing one-time verification of media.
 - Legal professionals and investigators handling digital evidence.
 - Organizations looking for automated, scalable deepfake detection via dashboards or APIs.
@@ -20,6 +21,7 @@ ProbeTruth is designed for:
 ### 1. Create an Account
 
 Choose one of the following:
+
 - **Paid Subscription:** Unlock full access with a personalized dashboard and file history.
 - **One-Time Use:** Use our limited, quick-access upload service — no account needed.
 

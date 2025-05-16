@@ -31,7 +31,7 @@ Upload a video, audio, or image file for analysis.
 Trigger forensic inspection on previously uploaded media.
 
 **Endpoint**: `POST /v1/media/inspect`  
-[View full documentation →](inspect.md)
+[View full documentation →](inspect_media.md)
 
 ---
 
