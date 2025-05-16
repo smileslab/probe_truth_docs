@@ -27,6 +27,8 @@ markdown_extensions:
   - footnotes
   - meta
   - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
 
 extra:
   favicon: favicon.ico
