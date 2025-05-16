@@ -856,8 +856,6 @@
 <p>The token is automatically validated by our <strong>API Gateway Authorizer</strong> before any request is forwarded to the inference engine.</p>
 <hr />
 <h2 id="example-python-jwt">Example (Python + JWT)<a class="headerlink" href="#example-python-jwt" title="Permanent link">&para;</a></h2>
-<pre>
-
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="n">JWT_TOKEN</span> <span class="o">=</span> <span class="s1">&#39;your_jwt_access_token_here&#39;</span>
@@ -875,8 +873,6 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 
-
-</pre>
 <hr />
 <h2 id="authenticating-with-cognito">Authenticating with Cognito<a class="headerlink" href="#authenticating-with-cognito" title="Permanent link">&para;</a></h2>
 <p>To get a token, you can authenticate with Cognito using:</p>
@@ -884,8 +880,6 @@
 <p>You’ll be redirected to a Cognito-hosted login page. Upon login, Cognito redirects you back to your app with a token.</p>
 <h3 id="option-b-programmatic-login-for-cli-or-backend-clients">Option B: Programmatic Login (for CLI or backend clients)<a class="headerlink" href="#option-b-programmatic-login-for-cli-or-backend-clients" title="Permanent link">&para;</a></h3>
 <p>You can use the AWS Cognito Identity SDK:</p>
-<pre>
-
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;cognito-idp&#39;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="s1">&#39;your-region&#39;</span><span class="p">)</span>
@@ -901,9 +895,6 @@
 
 <span class="n">jwt_token</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;AuthenticationResult&#39;</span><span class="p">][</span><span class="s1">&#39;AccessToken&#39;</span><span class="p">]</span>
 </code></pre></div>
-
-
-</pre>
 
 <hr />
 <h2 id="security-best-practices">Security Best Practices<a class="headerlink" href="#security-best-practices" title="Permanent link">&para;</a></h2>
