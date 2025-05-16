@@ -555,6 +555,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#developer-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Notes
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -799,6 +808,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#developer-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Notes
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -831,11 +849,9 @@
 <hr />
 <h2 id="supported-media-types">Supported Media Types<a class="headerlink" href="#supported-media-types" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>.mp4</code> — Video</li>
-<li><code>.mp3</code> — Audio</li>
-<li><code>.wav</code> — Audio</li>
-<li><code>.jpg</code> / <code>.jpeg</code> — Image</li>
-<li><code>.png</code> — Image</li>
+<li>— Video <code>.mp4</code> <code>.mkv</code> <code>.avi</code> <code>.mov</code> <code>.wmv</code> <code>.flv</code> <code>.webm</code> </li>
+<li>— Audio <code>.mp3</code> <code>.wav</code> <code>.aac</code> <code>.flac</code> </li>
+<li>— Image <code>.jpg</code> <code>.png</code> <code>.bmp</code> <code>.tiff</code> </li>
 </ul>
 <hr />
 <h2 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h2>
@@ -966,6 +982,14 @@
 <p>Once uploaded, use the returned <code>upload_id</code> to query analysis results:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">report</span><span class="o">-</span><span class="n">status</span><span class="err">?</span><span class="n">upload_id</span><span class="o">=&lt;</span><span class="n">upload_id</span><span class="o">&gt;</span>
 </code></pre></div>
+
+<h2 id="developer-notes">Developer Notes<a class="headerlink" href="#developer-notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use unique filenames to avoid collisions in downstream processing.</li>
+<li>Media larger than 500MB may fail to upload depending on server-side configuration.</li>
+<li>Accepted media types are validated on the backend. If you're unsure, validate the file type before uploading.</li>
+<li>After uploading, you will receive a media_id used in subsequent API calls (inspect, generate report, etc.).</li>
+</ul>
 
 
 
