@@ -93,7 +93,7 @@ jwt_token = response['AuthenticationResult']['AccessToken']
 
 ---
 
-## 📌 Coming Soon
+## Coming Soon
 
 - OAuth2 scope-based permission control (e.g., `read:reports`, `submit:job`)
 - Multi-tenant access via Cognito User Groups and Roles
