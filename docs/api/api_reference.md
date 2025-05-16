@@ -43,11 +43,3 @@ Retrieve a detailed report after inspection is completed.
 [View full documentation →](generate_report.md)
 
 ---
-
-## Detection Models
-
-Learn more about the AI models behind our detection engine.
-
-[View model details →](models.md)
-
-
