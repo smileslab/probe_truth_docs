@@ -31,15 +31,14 @@ Email: business@probetruth.ai
 ## Office Location
 
 **ProbTruth Inc.**  
-1234 AI Innovation Street  
-Seoul, Republic of Korea  
-(Use this only if you want to show a location; otherwise, remove this section.)
+Tower Plaza
+555 E William St, Ann Arbor, MI 48104
 
 ---
 
 ## Support Hours
 
-**Monday to Friday:** 9:00 AM – 6:00 PM (KST)  
+**Monday to Friday:** 9:00 AM – 5:00 PM (EST)  
 **Saturday & Sunday:** Closed
 
 ---
