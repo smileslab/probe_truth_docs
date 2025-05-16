@@ -22,12 +22,9 @@ This endpoint requires a valid API key. Include it in the `Authorization` header
 
 ## Supported Media Types
 
-- `.mp4` — Video
-- `.mp3` — Audio
-- `.wav` — Audio
-- `.jpg` / `.jpeg` — Image
-- `.png` — Image
-
+- — Video `.mp4` `.mkv` `.avi` `.mov` `.wmv` `.flv` `.webm` 
+- — Audio `.mp3` `.wav` `.aac` `.flac` 
+- — Image `.jpg` `.png` `.bmp` `.tiff` 
 ---
 
 ## Headers
@@ -141,3 +138,10 @@ Once uploaded, use the returned `upload_id` to query analysis results:
 ```
 GET /v1/report-status?upload_id=<upload_id>
 ```
+
+## Developer Notes
+
+- Use unique filenames to avoid collisions in downstream processing.
+- Media larger than 500MB may fail to upload depending on server-side configuration.
+- Accepted media types are validated on the backend. If you're unsure, validate the file type before uploading.
+- After uploading, you will receive a media_id used in subsequent API calls (inspect, generate report, etc.).
