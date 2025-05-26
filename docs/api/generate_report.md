@@ -14,14 +14,11 @@ POST https://api.probetruth.ai/v1/reports
 
 ## Authentication
 
-This endpoint requires **JWT-based token authentication** via AWS Cognito.
+This endpoint requires a valid API key. Include it in the `Authorization` header. Tokens are valid for 24 hours.:
 
-Include the access token in the `Authorization` header.
+`Authorization: Bearer YOUR_API_KEY`
 
-Tokens are valid for 24 hours.
-
-Authorization: Bearer &lt;your_jwt_token_here>
-
+API is accessible from whitelisted IPs. Ensure your IP is registered with ProbeTruth. SecurityScorecard tools are used to validate service security.
 
 ---
 
@@ -62,8 +59,7 @@ curl -X POST https://api.probetruth.ai/v1/reports \
 
 ## Response
 
-**Success: PDF Report (200 OK)**
-Returns a binary stream of the PDF:
+### Success: PDF Report (200 OK) returns a binary stream of the PDF:
 
 ```
 %PDF-1.7
@@ -73,8 +69,7 @@ Returns a binary stream of the PDF:
 ```
 The PDF file will be directly streamed in the response body with the `Content-Type: application/pdf` header.
 
-**Success: JSON Report (200 OK)**
-If Accept: application/json:
+### Success: JSON Report (200 OK) returns the URL of the JSON:
 ```
 {
   "media_id": "b91c0fe3-523d-4d3a-9e0e-17cc81c513ab",

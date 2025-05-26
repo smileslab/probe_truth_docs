@@ -12,16 +12,17 @@ There are separate endpoints to trigger the inspection process based on the type
 
 The `POST /v1/inspection` endpoint triggers the deepfake analysis pipeline for a previously uploaded media.
 
-Endpoint: 
-POST https://api.probetruth.ai/v1/inspection
+## Endpoint 
+
+`POST https://api.probetruth.ai/v1/inspection`
 
 #### Authentication
 
-This endpoint requires **JWT-based token authentication** via AWS Cognito.
+This endpoint requires a valid API key. Include it in the `Authorization` header. Tokens are valid for 24 hours.:
 
-Include the access token in the `Authorization` header.
+`Authorization: Bearer YOUR_API_KEY`
 
-Authorization: Bearer `<your_jwt_token_here>`
+API is accessible from whitelisted IPs. Ensure your IP is registered with ProbeTruth. SecurityScorecard tools are used to validate service security.
 
 
 #### Request Body
@@ -45,7 +46,7 @@ curl -X POST https://api.probetruth.ai/v1/inspection \
 
 ```
 
-Example Success Response (Inspection Initiated)
+### Example Success Response (Inspection Initiated)
 ```
 {
   "upload_id": "845f9ac7-9a71-4fcb-8e25-2b7234c6e3fc",
@@ -55,28 +56,28 @@ Example Success Response (Inspection Initiated)
 }
 ```
 
-Missing Upload ID or Case ID
+### Missing Upload ID or Case ID
 ```
 {
   "error": "Bad Request",
   "message": "The 'upload_id' and 'case_id' fields are required."
 }
 ```
-Invalid Upload ID
+### Invalid Upload ID
 ```
 {
   "error": "Not Found",
   "message": "Media with upload ID 'invalid-id' not found."
 }
 ```
-Unauthorized Token
+### Unauthorized Token
 ```
 {
   "error": "Unauthorized",
   "message": "Invalid or missing token."
 }
 ```
-Incorrect Media Type (Auto-detected internally)
+### Incorrect Media Type (Auto-detected internally)
 ```
 {
   "error": "Invalid Request",
@@ -84,13 +85,15 @@ Incorrect Media Type (Auto-detected internally)
 }
 ```
 
-### 2. Get Media Inspection Status
-Endpoint:
-GET https://api.probetruth.ai/v1/inspection/{upload_id}
+## 2. Get Media Inspection Status
+
+### Endpoint
+
+`GET https://api.probetruth.ai/v1/inspection/{upload_id}`
 
 This returns the current analysis status and the final result if available.
 
-Success Response
+### Success Response
 ```
 {
   "upload_id": "845f9ac7-9a71-4fcb-8e25-2b7234c6e3fc",
@@ -102,7 +105,7 @@ Success Response
   "report_available": true
 }
 ```
-Status Values
+### Status Values
 - queued
 - processing
 - completed

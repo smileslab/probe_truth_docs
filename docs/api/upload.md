@@ -18,7 +18,8 @@ This endpoint requires a valid API key. Include it in the `Authorization` header
 
 `Authorization: Bearer YOUR_API_KEY`
 
-Security: API access is IP whitelisted. Ensure your IP is registered with ProbeTruth. SecurityScorecard tools are used to validate service security.
+API is accessible from whitelisted IPs. Ensure your IP is registered with ProbeTruth. SecurityScorecard tools are used to validate service security.
+
 ---
 
 ## Supported Media Types
@@ -95,7 +96,7 @@ All endpoints return these common error responses:
 Once uploaded, use the returned `upload_id` to perform media inspection:
 
 ```
-GET /v1/report-status?upload_id=<upload_id>
+POST /v1/inspection
 ```
 
 ## Developer Notes
