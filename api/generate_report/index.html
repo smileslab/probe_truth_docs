@@ -801,10 +801,9 @@
 <p>POST https://api.probetruth.ai/v1/reports</p>
 <hr />
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
-<p>This endpoint requires <strong>JWT-based token authentication</strong> via AWS Cognito.</p>
-<p>Include the access token in the <code>Authorization</code> header.</p>
-<p>Tokens are valid for 24 hours.</p>
-<p>Authorization: Bearer &lt;your_jwt_token_here&gt;</p>
+<p>This endpoint requires a valid API key. Include it in the <code>Authorization</code> header. Tokens are valid for 24 hours.:</p>
+<p><code>Authorization: Bearer YOUR_API_KEY</code></p>
+<p>API is accessible from whitelisted IPs. Ensure your IP is registered with ProbeTruth. SecurityScorecard tools are used to validate service security.</p>
 <hr />
 <h2 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h2>
 <table>
@@ -869,8 +868,7 @@
 
 <hr />
 <h2 id="response">Response<a class="headerlink" href="#response" title="Permanent link">&para;</a></h2>
-<p><strong>Success: PDF Report (200 OK)</strong>
-Returns a binary stream of the PDF:</p>
+<p><strong>Success: PDF Report (200 OK) returns a binary stream of the PDF</strong>:</p>
 <div class="codehilite"><pre><span></span><code><span class="c">%PDF-1.7</span>
 <span class="n">1</span><span class="w"> </span><span class="s">0</span><span class="w"> </span><span class="s">obj</span>
 <span class="k">...</span><span class="c">binary PDF data...</span>
@@ -878,8 +876,7 @@ Returns a binary stream of the PDF:</p>
 </code></pre></div>
 
 <p>The PDF file will be directly streamed in the response body with the <code>Content-Type: application/pdf</code> header.</p>
-<p><strong>Success: JSON Report (200 OK)</strong>
-If Accept: application/json:</p>
+<p><strong>Success: JSON Report (200 OK) returns the URL of the JSON</strong>:</p>
 <div class="codehilite"><pre><span></span><code>{
   &quot;media_id&quot;: &quot;b91c0fe3-523d-4d3a-9e0e-17cc81c513ab&quot;,
   &quot;case_id&quot;: &quot;CASE-2025-0001&quot;,
